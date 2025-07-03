@@ -6,7 +6,11 @@ class GithubService {
     static async getUser(username) {
         try {
             const result = await octokit.users.getByUsername({ username });
-            console.log(result.data);
+            console.log(`Github-name: ${result.data.login}`);
+            console.log(`URL: ${result.data.html_url}`);
+            console.log(`Number of repos: ${result.data.public_repos}`);
+            console.log(`Created at: ${result.data.created_at}`);
+            console.log(`Updated at: ${result.data.updated_at}`);
         } catch (err){
             console.log(err.message)
         }
